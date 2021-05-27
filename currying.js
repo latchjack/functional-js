@@ -44,6 +44,21 @@ function greet2(greeting) {
  This is called a High-Order Function. A HOF is a function that either takes a function as an input parameter and/or returns a function.
  
  Array.map() is also a HOF because it takes a function as an input parameter.
+
+ Also by passing in the greeting parameter in the greet function and referencing the greeting inside the returned anonymous function  is called a closure.
+
+ Closures are functions that can access and use variables that arent directly passed into the function because of the placement of the function relatives to the variables.
+
+ To explain it further..
+ The parameter 'greeting' can be used anywhere in between the opening brace.
+
+ function greet2(greeting) { //! <<< HERE
+    return function(name) {
+        return `${greeting} ${name}`;
+    };
+ } //! <<< HERE
+
+ This area inside of those braces is called the 'scope of the parameter'.
 */
 
 console.log('Greet2:', greet2('Have a good weekend,') ('Latch'));

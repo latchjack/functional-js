@@ -67,18 +67,35 @@ const products = [
     {name: 'grapes', price: 3.90}
 ];
 
+function printReceipt(vat, vatTotal, newTotal) {
+    console.log(
+        'VAT is', vat + '%.', '\n',
+        'The VAT on your purchase came to', '£' + vatTotal.toFixed(2), '\n',
+        'The total including VAT', newTotal, '\n');
+}
+
+function addVat(total) {
+    const vat = 20;
+    const vatTotal = total / 100 * vat;
+    const newTotal = total + vatTotal;
+    // console.log('VAT is', vat + '%', 'The VAT on your purchase came to', '£' + vatTotal.toFixed(2));
+    // console.log('The total including VAT', newTotal);
+    return printReceipt(vat, vatTotal, newTotal);
+}
+
 function totalCounter(items) {
     let total = 0;
     for (i = 0; i < items.length; i++) {
         console.log(items[i].name, items[i].price);
         total += items[i].price;
     };
-    console.log('the total is: £', total);
+    return addVat(total);
 };
 
 function takeToCounter(...items) {
-    console.log(items);
     return totalCounter(items);
 };
 
-takeToCounter(products[1], products[0], products[3]);
+takeToCounter(products[0], products[1], products[3]);
+takeToCounter(products[2], products[4], products[6]);
+takeToCounter(products[5], products[1]);

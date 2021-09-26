@@ -70,3 +70,37 @@ console.log('Greet2:', greet2('Have a good weekend,') ('Latch'));
 const friendGreetings = friends.map(greet2('Good morning,'));
 
 console.log('friendGreetings:', friendGreetings);
+
+/*
+ Transforming a function from one that takes multiple args into a function that takes a single argument and returns a func 
+ that takes the remaining args is called Currying.
+*/
+
+
+/*
+ Partial application
+
+ The difference between partial application and currying
+
+ Currying is what you do whilst coding the function. Before it's in use..
+
+ PA is done when you begin to use the function. You are only using some of the parameters that function needs but not all.
+
+*/
+
+// Original function
+function greet(greeting) {
+    return function (name) {
+        return `${greeting} ${name}`;
+    }
+};
+
+// PA
+const afternoonGreet = greet('Good afternoon'); // This line is PA of a Curried function
+const greetNate = afternoonGreet('Nate');
+
+// You can also do PA on a non-Curried function.
+
+function add(x,y) {
+    return x+ y;
+};

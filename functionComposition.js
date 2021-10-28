@@ -44,3 +44,8 @@ console.log(wordCount);
 const sentence2 = "To be, or not to be. That is the question";
 const wordCount2 = R.length(R.split(' ', sentence2));
 console.log(wordCount2);
+
+// Compose function
+
+const countWords = R.compose(R.length, R.split);
+console.log(countWords(' ', sentence));

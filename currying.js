@@ -100,7 +100,11 @@ const afternoonGreet = greet('Good afternoon'); // This line is PA of a Curried 
 const greetNate = afternoonGreet('Nate');
 
 // You can also do PA on a non-Curried function.
-
 function add(x,y) {
-    return x+ y;
+    return x + y;
 };
+
+// Imagine we had an imported library named Partial.
+// import partial from 'partialApplication';
+const add3 = partial(add, [3]);
+console.log(add3(2));

@@ -1,3 +1,4 @@
+const R = require('ramda');
 // Function Composition
 
 /*
@@ -29,5 +30,17 @@ const makePie = compose (bake, slice);
 const pie = makePie(apples);
 
 Which would give us our pie.
-
 */
+
+// I want to find out how many words are in the following sentence..
+
+const sentence = "To be, or not to be. That is the question";
+const wordList = R.split(' ', sentence);
+const wordCount = R.length(wordList);
+console.log(wordCount);
+
+// We could also do this more succinctly by writing, but we lose readability
+
+const sentence2 = "To be, or not to be. That is the question";
+const wordCount2 = R.length(R.split(' ', sentence2));
+console.log(wordCount2);

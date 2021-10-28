@@ -32,6 +32,8 @@ const pie = makePie(apples);
 Which would give us our pie.
 */
 
+// Compose function
+
 // I want to find out how many words are in the following sentence..
 
 const sentence = "To be, or not to be. That is the question";
@@ -45,7 +47,26 @@ const sentence2 = "To be, or not to be. That is the question";
 const wordCount2 = R.length(R.split(' ', sentence2));
 console.log(wordCount2);
 
-// Compose function
+// Compose example
+
+/*
+Compose works from right to left, so the last function passed as a parameter
+will be the first function to executed in our composition function.
+*/
+
 
 const countWords = R.compose(R.length, R.split);
 console.log(countWords(' ', sentence));
+
+// OR!
+
+const countWords2 = R.compose(R.length, R.split(' '));
+console.log(countWords2(sentence));
+
+/*
+A similar functions to R.compose is R.pipe which does the same thing except that
+it executes it's parameters from left to right.
+*/
+
+// Meaning countWords3 has the same output as countWords2
+const countWords3 = R.pipe(R.split(' '), R.length);
